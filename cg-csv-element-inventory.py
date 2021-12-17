@@ -100,6 +100,7 @@ def go():
         csvwriter = csv.writer(csvfile, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
         resp = cgx_session.get.elements()
         if resp.cgx_status:
+            csvwriter.writerow( [ 'site_name', "ion_name", 'software_version', 'model_name'  ] ) 
             element_list = resp.cgx_content.get("items", None)    #EVENT_LIST contains an list of all returned events
             for element in element_list:       
                 counter += 1
