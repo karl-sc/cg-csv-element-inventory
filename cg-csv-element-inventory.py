@@ -69,7 +69,6 @@ def authenticate():
     print("    ","SUCCESS: Authentication Complete")
 
 def go():
-
     ####CODE GOES BELOW HERE#########
     resp = cgx_session.get.tenants()
     if resp.cgx_status:
@@ -95,7 +94,7 @@ def go():
         logout()
         print("ERROR: API Call failure when enumerating SITES in tenant! Exiting!")
         sys.exit((jd(resp)))
-
+    site_id_name_mapping['1'] = "CLAIMED/Unassigned"
     counter = 0
     with open(csvfilename, 'w', newline='') as csvfile:
         csvwriter = csv.writer(csvfile, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
